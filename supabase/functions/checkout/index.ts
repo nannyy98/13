@@ -160,9 +160,9 @@ Deno.serve(async (req: Request) => {
     // Create order with atomic stock deduction using a transaction
     const { data: order, error: orderError } = await supabase.rpc("create_order_with_stock", {
       p_telegram_user_id: body.telegram_user_id,
-      p_items: JSON.stringify(body.items),
+      p_items: body.items,
       p_total_amount: body.total_amount,
-      p_customer_info: JSON.stringify(body.customer_info),
+      p_customer_info: body.customer_info,
       p_delivery_type: body.delivery_type,
       p_delivery_cost: body.delivery_cost,
       p_payment_method: body.payment_method,
